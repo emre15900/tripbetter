@@ -262,7 +262,9 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+  cursor: pointer;
   line-height: normal;
+  z-index: 999999;
 }
 
 .tv-blog .blog-card .title {
@@ -501,7 +503,7 @@
 }
 
 .navbar {
-  background-color: #333;
+  background-color: transparent !important;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -570,5 +572,35 @@
   #navItems {
     display: none;
   }
+}
+
+.tb-footer {
+  background: #000;
+  padding: 100px 0;
+  margin-top: 10rem;
+}
+
+.tb-footer .footer-box a {
+  text-decoration: none;
+}
+
+.tb-footer .footer-box .title {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.tb-footer .footer-box .content {
+  color: #fff;
+  font-family: Akshar;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  /* 162.5% */
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=style.css.map */
