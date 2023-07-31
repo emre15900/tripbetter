@@ -224,6 +224,11 @@
   }
 
   .blog-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     .title {
       color: #000;
       font-family: Poppins;
@@ -389,7 +394,15 @@
     flex-direction: column;
   }
   .tv_slider .slider-box .slider-text {
-    font-size: 55px;
+    font-size: 30px;
+  }
+  .search-box img {
+    width: 100% !important;
+  }
+  .tv-blog .select-box {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
   }
   .tv_slider .slider-box {
     padding: 70px 0;
