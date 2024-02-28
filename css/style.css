@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .body-background {
   background-image: url("../img/body-bg.jpg");
   background-size: cover;
@@ -753,17 +754,40 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
+  opacity: 0; /* Başlangıçta opaklık 0 */
+  transition: opacity 0.3s ease; /* Geçiş efekti */
+}
+
+.popup.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; /* Popup açıldığında opaklık 1'e animasyonla geçiş yapar */
 }
 
 .popup-content {
   background-color: white;
   max-width: 400px;
-  margin: 100px auto;
-  padding: 20px;
+  padding: 0 20px;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Popup'a gölgelendirme ekleyelim */
 }
 
 .popup-close {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
   cursor: pointer;
+}
+
+.popup-image {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.popup-image img {
+  border-radius: 10px;
+}
+
+#popupPrice {
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

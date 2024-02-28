@@ -114,20 +114,26 @@ function openPopup(index) {
   popupPrice.textContent = "Price: " + product.price;
   popupImage.src = product.image;
 
-  popup.style.display = "block";
-
-  // Add event listener to close the popup when clicked outside
-  window.addEventListener("click", function (event) {
-    if (event.target === popup || event.target === popupClose) {
-      closePopup();
-    }
-  });
+  popup.classList.add("show");
+  window.addEventListener("click", closePopupOutside);
 }
 
 // Function to close the popup
 function closePopup() {
   var popup = document.getElementById("productPopup");
-  popup.style.display = "none";
+  popup.classList.remove("show");
+
+  // Remove event listener to prevent memory leaks
+  window.removeEventListener("click", closePopupOutside);
+}
+
+// Function to close the popup when clicked outside
+function closePopupOutside(event) {
+  var popup = document.getElementById("productPopup");
+  var popupClose = document.querySelector(".popup-close");
+  if (event.target === popup || event.target === popupClose) {
+    closePopup();
+  }
 }
 
 // Add event listeners to product buttons to open popup
