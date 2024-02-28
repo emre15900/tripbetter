@@ -734,4 +734,13 @@
   font-weight: 500;
   font-size: 20px;
   color: #000000;
+}
+
+@media only screen and (max-width: 992px) {
+  .tv-popular-services {
+    padding: 0 20px;
+  }
+  .tv-who-we-are {
+    padding: 0 20px;
+  }
 }/*# sourceMappingURL=style.css.map */
