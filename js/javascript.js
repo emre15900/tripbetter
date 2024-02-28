@@ -223,6 +223,7 @@ function closePopup() {
 
   // Popup kapatıldığında adımı sıfırla
   document.getElementById("currentStep").value = 1;
+  currentStep = 1;
 }
 
 // Ürünleri göster
