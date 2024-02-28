@@ -111,6 +111,7 @@
                   type="search"
                   placeholder="Search Tour"
                   class="search-input"
+                  onkeyup="filterTours()"
                 />
                 <button type="submit" class="search-button">
                   <p>Search</p>
@@ -124,7 +125,7 @@
 
     <section class="tv-popular-services">
       <div class="container">
-        <div class="row">
+        <div class="row" id="tourList">
           <div class="col-sm-12">
             <h1 class="title">Popular Tours</h1>
           </div>
@@ -262,7 +263,9 @@
                 />
               </div>
               <h2 class="title">2 days Selous Game Reserve</h2>
-              <p class="content" style="margin-bottom: 1.7rem">2 Days 1 Night</p>
+              <p class="content" style="margin-bottom: 1.7rem">
+                2 Days 1 Night
+              </p>
               <button class="button-tip-there">from $650.00</button>
             </div>
           </div>
