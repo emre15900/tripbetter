@@ -1,5 +1,5 @@
 .body-background {
-  background-image: url("../img/body-bg.png");
+  background-image: url("../img/body-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -15,16 +15,22 @@
 }
 
 .tv_slider .slider-box {
-  padding: 150px 0;
+  padding: 210px 0;
 }
 .tv_slider .slider-box .slider-text {
   color: #fff;
   font-family: Poppins;
-  font-size: 66px;
+  font-size: 70px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   text-align: center;
+}
+.tv_slider .slider-box .slider-description {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 2.5rem;
 }
 .tv_slider .slider-box .slider-content {
   color: #fff;
@@ -174,6 +180,7 @@
 
 .tv-blog {
   padding: 0 200px;
+  margin-top: 2rem;
 }
 .tv-blog .blog-img {
   margin-top: 80px;
@@ -500,4 +507,223 @@
   font-weight: 400;
   line-height: 26px; /* 162.5% */
   text-transform: capitalize;
+}
+
+.tv-search-box {
+  margin-top: 3rem;
+}
+.tv-search-box .tv-search-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tv-search-box .tv-search-center .tv-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+}
+.tv-search-box .tv-search-center .tv-search .search-input {
+  border-radius: 30px;
+  padding: 15px 2rem;
+  width: 100%;
+  outline: 0;
+  border: 2px solid #000000;
+}
+.tv-search-box .tv-search-center .tv-search .search-button {
+  background-color: #000000;
+  border-radius: 30px;
+  padding: 10px 4rem;
+  outline: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 7px;
+  right: 6.5px;
+  cursor: pointer;
+}
+.tv-search-box .tv-search-center .tv-search .search-button:hover {
+  background-color: #3d3d3d;
+}
+.tv-search-box .tv-search-center .tv-search .search-button p {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.tv-popular-services {
+  padding: 0 200px;
+}
+.tv-popular-services .blog-img {
+  margin-top: 40px;
+}
+.tv-popular-services .blog-img img {
+  border-radius: 10px;
+}
+.tv-popular-services .card-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.tv-popular-services .card-buttons .button-tip-one {
+  margin-top: 50px;
+  background: rgb(0, 0, 0);
+  border-radius: 30px;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 10px 5rem;
+  border: none;
+  cursor: pointer;
+}
+.tv-popular-services .select-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: -60px;
+  margin-top: 2rem;
+}
+.tv-popular-services .select-box .selections {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: normal;
+  z-index: 999999;
+}
+.tv-popular-services .blog-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tv-popular-services .blog-card .title {
+  color: #000;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-top: 1rem;
+  text-align: start;
+}
+.tv-popular-services .blog-card .button-tip-there {
+  background: transparent;
+  border-radius: 10px;
+  color: #000000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 10px 2rem;
+  border: 1px solid #ff0808;
+  width: 100%;
+  cursor: text;
+}
+.tv-popular-services .blog-card .content {
+  color: #000;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 1rem;
+}
+.tv-popular-services .blog-box {
+  margin-top: 80px;
+}
+.tv-popular-services .title {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-top: 3rem;
+}
+.tv-popular-services .blog-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.tv-popular-services .blog-box .sub-title {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px;
+}
+.tv-popular-services .blog-box .tv-hr {
+  border-radius: 16px;
+  background: #ff5c00;
+  width: 80%;
+  height: 5px;
+}
+.tv-popular-services .blog-box .content-box {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.tv-popular-services .blog-box .content-box .content {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.tv-who-we-are {
+  padding: 0 200px;
+  margin-top: 3rem;
+}
+.tv-who-we-are .title {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.tv-who-we-are .who-we-are-box {
+  margin-top: 2rem;
+}
+.tv-who-we-are .who-we-are-box .sub-title {
+  color: #000;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+.tv-who-we-are .who-we-are-box .content {
+  color: #000;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: start;
+}
+.tv-who-we-are .who-we-are-box .content .content-link {
+  color: #000000;
 }/*# sourceMappingURL=style.css.map */
