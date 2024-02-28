@@ -768,7 +768,7 @@
 .popup-content {
   background-color: white;
   max-width: 400px;
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Popup'a gölgelendirme ekleyelim */
 }
@@ -790,4 +790,19 @@
 
 #popupPrice {
   font-weight: 700;
+}
+
+.payment-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment-button .make-payment {
+  background-color: #ff5c00;
+  color: #fff;
+  padding: 8px 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+  border: none;
 }/*# sourceMappingURL=style.css.map */
