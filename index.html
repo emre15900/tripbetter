@@ -111,7 +111,7 @@
                   type="search"
                   placeholder="Search Tour"
                   class="search-input"
-                  onkeyup="filterTours()"
+                  id="searchInput"
                 />
                 <button type="submit" class="search-button">
                   <p>Search</p>
@@ -123,166 +123,14 @@
       </div>
     </section>
 
+    <!-- <div class="col-sm-12">
+            <h1 class="title">Popular Tours</h1>
+          </div> -->
+
     <section class="tv-popular-services">
       <div class="container">
         <div class="row" id="tourList">
-          <div class="col-sm-12">
-            <h1 class="title">Popular Tours</h1>
-          </div>
-          <!-- <div class="col-sm-12 col-md-12">
-            <div class="select-box">
-              <p class="selections">Kuala Lumpur</p>
-              <p class="selections">Singapore</p>
-              <p class="selections">Bangkok</p>
-              <p class="selections">Melaka</p>
-              <p class="selections">Taipei</p>
-              <p class="selections">Tokio</p>
-              <p class="selections">Langkawi</p>
-              <p class="selections">Shanghai</p>
-            </div>
-          </div> -->
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2021/08/StandardDoubleRoom_1-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">7 Nights Zanzibar Queen Hotel</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                8 days 7 nights
-              </p>
-              <button class="button-tip-there">from $1.390.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2022/05/7nights-Filao-Beach-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">7 Nights Filao Beach Zanzibar</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                8 days 7 nights
-              </p>
-              <button class="button-tip-there">from $750.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2022/05/Mivumo-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">7 Nights Zanzibar Queen Hotel</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                3 Days Luxury Selous Safari
-              </p>
-              <button class="button-tip-there">from $990.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2022/05/7nights-Filao-Beach-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">7 Nights Royal Zanzibar Beach</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                8 days 7 nights
-              </p>
-              <button class="button-tip-there">from $750.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2021/01/Royal-Zanzibar-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">7 Nights Filao Beach Zanzibar</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                8 days 7 nights
-              </p>
-              <button class="button-tip-there">from $1.800.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2020/12/Pool-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">6 Nights Filao Beach Zanzibar</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                3 Days Luxury Selous Safari
-              </p>
-              <button class="button-tip-there">from $750.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2022/05/Mikumi-Flight-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">7 Nights Zanzibar Queen Hotel</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                3 Days 2 Nights
-              </p>
-              <button class="button-tip-there">from $850.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2022/05/Flight-at-Mtemere-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">2 days Selous Game Reserve</h2>
-              <p class="content" style="margin-bottom: 1.7rem">
-                2 Days 1 Night
-              </p>
-              <button class="button-tip-there">from $650.00</button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="blog-card">
-              <div class="blog-img">
-                <img
-                  src="https://tripsbetter.com/pacmoori/2022/03/selous-game-reserve-banner-680x500.jpg"
-                  alt=""
-                  width="100%"
-                />
-              </div>
-              <h2 class="title">Day Trip To Selous Game Reserve</h2>
-              <p class="content" style="margin-bottom: 1.7rem">Day trip</p>
-              <button class="button-tip-there">from $450.00</button>
-            </div>
-          </div>
+          <!-- Products will be displayed here -->
         </div>
       </div>
     </section>
