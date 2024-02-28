@@ -177,3 +177,46 @@ displayProducts(products);
 document
   .getElementById("searchInput")
   .addEventListener("input", filterProducts);
+
+
+  var currentStep = 1; // Başlangıç adımı
+
+// Make payment butonuna tıklandığında çağrılacak fonksiyon
+function makePayment() {
+  // Önceki içeriği temizle
+  clearPopupContent();
+
+  // İleri adımın HTML içeriği
+  var html = `
+    <h2>Step ${currentStep}</h2>
+    <p>This is step ${currentStep}</p>
+    <button onclick="previousStep()">Previous</button>
+    <button onclick="nextStep()">Next</button>
+  `;
+  // Popup içeriğine ekle
+  document.querySelector(".payment-box").innerHTML = html;
+}
+
+// Önceki adıma geri dönme fonksiyonu
+function previousStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    makePayment(); // Yeni adımı göster
+  }
+}
+
+// Bir sonraki adıma geçiş fonksiyonu
+function nextStep() {
+  if (currentStep < 3) { // 3 adım olduğunu varsayalım
+    currentStep++;
+    makePayment(); // Yeni adımı göster
+  }
+}
+
+// Popup içeriğini temizleyen fonksiyon
+function clearPopupContent() {
+  document.querySelector(".payment-box").innerHTML = '';
+}
+
+// Ödeme butonuna tıklanma olayı
+document.querySelector(".make-payment").addEventListener("click", makePayment);
