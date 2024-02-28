@@ -81,7 +81,8 @@ function displayProducts(products) {
   var container = document.getElementById("tourList");
   container.innerHTML = ""; // Clear previous content
 
-  products.forEach(function (product) {
+  products.forEach(function (product, index) {
+    console.log(product);
     var html = `
           <div class="col-sm-12 col-md-4">
               <div class="blog-card">
@@ -90,7 +91,7 @@ function displayProducts(products) {
                   </div>
                   <h2 class="title">${product.title}</h2>
                   <p class="content" style="margin-bottom: 1.7rem">${product.description}</p>
-                  <button class="button-tip-there">from ${product.price}</button>
+                  <button class="button-tip-there"  onclick="openPopup(${index})">from ${product.price}</button>
               </div>
           </div>
       `;
@@ -98,18 +99,53 @@ function displayProducts(products) {
   });
 }
 
+// Function to open the popup and display product details
+function openPopup(index) {
+  var product = products[index]; // Get the product by index
+  var popup = document.getElementById("productPopup");
+  var popupTitle = document.getElementById("popupTitle");
+  var popupDescription = document.getElementById("popupDescription");
+  var popupPrice = document.getElementById("popupPrice");
+  var popupImage = document.getElementById("popupImage");
+
+  popupTitle.textContent = product.title;
+  popupDescription.textContent = product.description;
+  popupPrice.textContent = "Price: " + product.price;
+  popupImage.src = product.image;
+
+  popup.style.display = "block";
+}
+
+// Function to close the popup
+function closePopup() {
+  var popup = document.getElementById("productPopup");
+  popup.style.display = "none";
+}
+
+// Add event listeners to product buttons to open popup
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll(".button-tip-there");
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var productIndex = parseInt(this.dataset.index); // Assuming each button has a data-index attribute indicating the index of the product in the products array
+      var product = products[productIndex];
+      openPopup(product.title, product.description, product.price);
+    });
+  });
+});
+
 function filterProducts() {
   var input, filter, filteredProducts;
 
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
 
-  filteredProducts = products.filter(function(product) {
+  filteredProducts = products.filter(function (product) {
     return (
-        product.title.toUpperCase().includes(filter) || 
-        product.description.toUpperCase().includes(filter)
+      product.title.toUpperCase().includes(filter) ||
+      product.description.toUpperCase().includes(filter)
     );
-});
+  });
 
   displayProducts(filteredProducts);
 
