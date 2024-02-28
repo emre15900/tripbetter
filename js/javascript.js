@@ -77,77 +77,6 @@ var products = [
   },
 ];
 
-function displayProducts(products) {
-  var container = document.getElementById("tourList");
-  container.innerHTML = ""; // Clear previous content
-
-  products.forEach(function (product, index) {
-    console.log(product);
-    var html = `
-          <div class="col-sm-12 col-md-4">
-              <div class="blog-card">
-                  <div class="blog-img">
-                      <img src="${product.image}" alt="" width="100%">
-                  </div>
-                  <h2 class="title">${product.title}</h2>
-                  <p class="content" style="margin-bottom: 1.7rem">${product.description}</p>
-                  <button class="button-tip-there"  onclick="openPopup(${index})">from ${product.price}</button>
-              </div>
-          </div>
-      `;
-    container.innerHTML += html;
-  });
-}
-
-// Function to open the popup and display product details
-function openPopup(index) {
-  var product = products[index]; // Get the product by index
-  var popup = document.getElementById("productPopup");
-  var popupTitle = document.getElementById("popupTitle");
-  var popupDescription = document.getElementById("popupDescription");
-  var popupPrice = document.getElementById("popupPrice");
-  var popupImage = document.getElementById("popupImage");
-  var popupClose = document.querySelector(".popup-close");
-
-  popupTitle.textContent = product.title;
-  popupDescription.textContent = product.description;
-  popupPrice.textContent = "Price: " + product.price;
-  popupImage.src = product.image;
-
-  popup.classList.add("show");
-  window.addEventListener("click", closePopupOutside);
-}
-
-// Function to close the popup
-function closePopup() {
-  var popup = document.getElementById("productPopup");
-  popup.classList.remove("show");
-
-  // Remove event listener to prevent memory leaks
-  window.removeEventListener("click", closePopupOutside);
-}
-
-// Function to close the popup when clicked outside
-function closePopupOutside(event) {
-  var popup = document.getElementById("productPopup");
-  var popupClose = document.querySelector(".popup-close");
-  if (event.target === popup || event.target === popupClose) {
-    closePopup();
-  }
-}
-
-// Add event listeners to product buttons to open popup
-document.addEventListener("DOMContentLoaded", function () {
-  var buttons = document.querySelectorAll(".button-tip-there");
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      var productIndex = parseInt(this.dataset.index); // Assuming each button has a data-index attribute indicating the index of the product in the products array
-      var product = products[productIndex];
-      openPopup(product.title, product.description, product.price);
-    });
-  });
-});
-
 function filterProducts() {
   var input, filter, filteredProducts;
 
@@ -178,45 +107,123 @@ document
   .getElementById("searchInput")
   .addEventListener("input", filterProducts);
 
+var currentStep = 1; // Başlangıç adımı
 
-  var currentStep = 1; // Başlangıç adımı
+function displayProducts(products) {
+  var container = document.getElementById("tourList");
+  container.innerHTML = ""; // Önceki içeriği temizle
 
-// Make payment butonuna tıklandığında çağrılacak fonksiyon
-function makePayment() {
-  // Önceki içeriği temizle
-  clearPopupContent();
+  products.forEach(function (product, index) {
+    var html = `
+      <div class="col-sm-12 col-md-4">
+        <div class="blog-card">
+          <div class="blog-img">
+            <img src="${product.image}" alt="" width="100%">
+          </div>
+          <h2 class="title">${product.title}</h2>
+          <p class="content">${product.description}</p>
+          <!-- Ürün detayları butonu -->
+          <button class="product-detail-button" data-index="${index}">Product Detail</button>
+        </div>
+      </div>
+    `;
+    container.innerHTML += html;
+  });
 
-  // İleri adımın HTML içeriği
-  var html = `
-    <h2>Step ${currentStep}</h2>
-    <p>This is step ${currentStep}</p>
-    <button onclick="previousStep()">Previous</button>
-    <button onclick="nextStep()">Next</button>
-  `;
-  // Popup içeriğine ekle
-  document.querySelector(".payment-box").innerHTML = html;
+  // Ürün detayları butonlarına tıklama olayı ekle
+  var detailButtons = document.querySelectorAll(".product-detail-button");
+  detailButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var index = parseInt(this.getAttribute("data-index"));
+      openProductDetails(products[index]);
+    });
+  });
 }
 
-// Önceki adıma geri dönme fonksiyonu
-function previousStep() {
-  if (currentStep > 1) {
-    currentStep--;
-    makePayment(); // Yeni adımı göster
-  }
+function openProductDetails(product) {
+  // İlk önce içeriği temizle
+  clearPopupContent();
+
+  // Ürün detaylarını popup içerisine ekle
+  var html = `
+    <h2>${product.title}</h2>
+    <img src="${product.image}" alt="" width="100%">
+    <p>${product.description}</p>
+    <p>Price: ${product.price}</p>
+    <button onclick="nextStep()">Proceed to Payment</button>
+  `;
+  document.querySelector(".step-container").innerHTML = html;
+
+  // Popup'ı göster
+  showPopup();
 }
 
 // Bir sonraki adıma geçiş fonksiyonu
 function nextStep() {
-  if (currentStep < 3) { // 3 adım olduğunu varsayalım
-    currentStep++;
-    makePayment(); // Yeni adımı göster
+  currentStep++;
+  if (currentStep === 2) {
+    openPaymentDetails();
+  } else if (currentStep === 3) {
+    completePayment();
   }
 }
+function openPaymentDetails() {
+  // İlk önce içeriği temizle
+  clearPopupContent();
 
-// Popup içeriğini temizleyen fonksiyon
-function clearPopupContent() {
-  document.querySelector(".payment-box").innerHTML = '';
+  // Ödeme detaylarını popup içerisine ekle
+  var html = `
+    <h2>Payment Details</h2>
+    <p>Payment details form goes here...</p>
+    <button onclick="previousStep()">Previous</button>
+    <button onclick="nextStep()">Proceed to Payment</button>
+  `;
+  document.querySelector(".step-container").innerHTML = html;
 }
 
-// Ödeme butonuna tıklanma olayı
-document.querySelector(".make-payment").addEventListener("click", makePayment);
+function completePayment() {
+  // İlk önce içeriği temizle
+  clearPopupContent();
+
+  // Ödeme tamamlandı mesajını göster
+  var html = `
+    <h2>Payment Completed</h2>
+    <p>Thank you for your purchase!</p>
+    <button onclick="closePopup()">Close</button>
+  `;
+  document.querySelector(".step-container").innerHTML = html;
+}
+
+// Önceki adıma geri dönme fonksiyonu
+function previousStep() {
+  var currentStep = parseInt(document.getElementById("currentStep").value);
+
+  currentStep--;
+  if (currentStep === 1) {
+    openProductDetails(products[0]);
+  } else if (currentStep === 2) {
+    openPaymentDetails();
+  }
+
+  document.getElementById("currentStep").value = currentStep;
+}
+
+function clearPopupContent() {
+  document.querySelector(".step-container").innerHTML = "";
+}
+
+function showPopup() {
+  var popup = document.getElementById("productPopup");
+  popup.classList.add("show");
+}
+
+function closePopup() {
+  var popup = document.getElementById("productPopup");
+  popup.classList.remove("show");
+
+  // Popup kapatıldığında adımı sıfırla
+  document.getElementById("currentStep").value = 1;
+}
+
+// Ürünleri göster
+displayProducts(products);
