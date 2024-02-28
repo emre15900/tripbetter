@@ -107,6 +107,7 @@ function openPopup(index) {
   var popupDescription = document.getElementById("popupDescription");
   var popupPrice = document.getElementById("popupPrice");
   var popupImage = document.getElementById("popupImage");
+  var popupClose = document.querySelector(".popup-close");
 
   popupTitle.textContent = product.title;
   popupDescription.textContent = product.description;
@@ -114,6 +115,13 @@ function openPopup(index) {
   popupImage.src = product.image;
 
   popup.style.display = "block";
+
+  // Add event listener to close the popup when clicked outside
+  window.addEventListener("click", function (event) {
+    if (event.target === popup || event.target === popupClose) {
+      closePopup();
+    }
+  });
 }
 
 // Function to close the popup
