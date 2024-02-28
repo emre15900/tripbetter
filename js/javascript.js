@@ -104,16 +104,19 @@ function filterProducts() {
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
 
-  filteredProducts = products.filter(function (product) {
-    return product.title.toUpperCase().includes(filter);
-  });
+  filteredProducts = products.filter(function(product) {
+    return (
+        product.title.toUpperCase().includes(filter) || 
+        product.description.toUpperCase().includes(filter)
+    );
+});
 
   displayProducts(filteredProducts);
 
   var container = document.getElementById("tourList");
   if (filteredProducts.length === 0) {
     container.innerHTML =
-      "<div class='col-sm-12'><p>No results found.</p></div>";
+      "<div class='col-sm-12'><p class='notFound'>No results found.</p></div>";
   }
 }
 
