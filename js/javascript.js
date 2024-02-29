@@ -120,7 +120,7 @@ function displayProducts(products) {
             <h2 class="title">${product.title}</h2>
             <p class="content">${product.description}</p>
             <!-- Ürün detayları butonu -->
-            <button class="product-detail-button" data-index="${index}">Product Detail</button>
+            <button class="product-detail-button" data-index="${index}">from ${product.price}</button>
           </div>
         </div>
       `;
@@ -144,10 +144,10 @@ function openProductDetails(product) {
   // Ürün detaylarını popup içerisine ekle
   var html = `
       <h2>${product.title}</h2>
-      <img src="${product.image}" alt="" width="100%">
+      <img class="payment-img" src="${product.image}" alt="" width="100%">
       <p>${product.description}</p>
-      <p>Price: ${product.price}</p>
-      <button onclick="nextStep()">Make Payment</button>
+      <p class="payment-price">Price: ${product.price}</p>
+      <div class="payment-button"><button class="make-payment" onclick="nextStep()">Make Payment</button></div>
     `;
   document.querySelector(".step-container").innerHTML = html;
 
@@ -172,7 +172,7 @@ function openPaymentDetails() {
   var html = `
       <h2>Payment Details</h2>
       <p>Payment details form goes here...</p>
-      <button onclick="nextStep()">Proceed to Payment</button>
+      <div class="payment-button"><button class="make-payment"  onclick="nextStep()">Proceed to Payment</button></div>
     `;
   document.querySelector(".step-container").innerHTML = html;
 }
@@ -184,12 +184,12 @@ function completePayment() {
   // Ödeme tamamlandı mesajını göster
   var html = `
       <h2>Payment Completed</h2>
+      <img class="payment-img" src="../img/success.gif" alt="" width="100%">
       <p>Thank you for your purchase!</p>
-      <button onclick="closePopup()">Close</button>
+      <div class="payment-button"><button  class="make-payment"  onclick="closePopup()">Close</button></div>
     `;
   document.querySelector(".step-container").innerHTML = html;
 }
-
 
 function clearPopupContent() {
   document.querySelector(".step-container").innerHTML = "";
