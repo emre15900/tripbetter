@@ -858,4 +858,16 @@
 }
 .step-container .payment-price {
   font-weight: 600;
+}
+
+.popup-form {
+  margin-top: 1rem;
+}
+
+.form-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.8rem;
 }/*# sourceMappingURL=style.css.map */
