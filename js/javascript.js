@@ -147,7 +147,7 @@ function openProductDetails(product) {
       <img src="${product.image}" alt="" width="100%">
       <p>${product.description}</p>
       <p>Price: ${product.price}</p>
-      <button onclick="nextStep()">Proceed to Payment</button>
+      <button onclick="nextStep()">Make Payment</button>
     `;
   document.querySelector(".step-container").innerHTML = html;
 
@@ -172,7 +172,6 @@ function openPaymentDetails() {
   var html = `
       <h2>Payment Details</h2>
       <p>Payment details form goes here...</p>
-      <button onclick="previousStep()">Previous</button>
       <button onclick="nextStep()">Proceed to Payment</button>
     `;
   document.querySelector(".step-container").innerHTML = html;
@@ -191,27 +190,6 @@ function completePayment() {
   document.querySelector(".step-container").innerHTML = html;
 }
 
-// Önceki adıma geri dönme fonksiyonu
-function previousStep() {
-  currentStep--;
-
-  if (currentStep === 1) {
-    // Eğer currentStep 1 ise, mevcut adım 1. adım olduğu için
-    // ilk ürünün detaylarını gösteriyoruz.
-    var index = parseInt(
-      document
-        .querySelector(".product-detail-button")
-        .getAttribute("data-index")
-    );
-    openProductDetails(products[index]);
-  } else if (currentStep === 2) {
-    // Eğer currentStep 2 ise, mevcut adım 2. adım olduğu için
-    // ödeme detaylarını gösteriyoruz.
-    openPaymentDetails();
-  }
-
-  document.getElementById("currentStep").value = currentStep;
-}
 
 function clearPopupContent() {
   document.querySelector(".step-container").innerHTML = "";
