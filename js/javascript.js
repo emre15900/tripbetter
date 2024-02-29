@@ -99,9 +99,6 @@ function filterProducts() {
   }
 }
 
-// Display all products initially
-displayProducts(products);
-
 // Call filterProducts when search input changes
 document
   .getElementById("searchInput")
@@ -115,18 +112,18 @@ function displayProducts(products) {
 
   products.forEach(function (product, index) {
     var html = `
-      <div class="col-sm-12 col-md-4">
-        <div class="blog-card">
-          <div class="blog-img">
-            <img src="${product.image}" alt="" width="100%">
+        <div class="col-sm-12 col-md-4">
+          <div class="blog-card">
+            <div class="blog-img">
+              <img src="${product.image}" alt="" width="100%">
+            </div>
+            <h2 class="title">${product.title}</h2>
+            <p class="content">${product.description}</p>
+            <!-- Ürün detayları butonu -->
+            <button class="product-detail-button" data-index="${index}">Product Detail</button>
           </div>
-          <h2 class="title">${product.title}</h2>
-          <p class="content">${product.description}</p>
-          <!-- Ürün detayları butonu -->
-          <button class="product-detail-button" data-index="${index}">Product Detail</button>
         </div>
-      </div>
-    `;
+      `;
     container.innerHTML += html;
   });
 
@@ -146,12 +143,12 @@ function openProductDetails(product) {
 
   // Ürün detaylarını popup içerisine ekle
   var html = `
-    <h2>${product.title}</h2>
-    <img src="${product.image}" alt="" width="100%">
-    <p>${product.description}</p>
-    <p>Price: ${product.price}</p>
-    <button onclick="nextStep()">Proceed to Payment</button>
-  `;
+      <h2>${product.title}</h2>
+      <img src="${product.image}" alt="" width="100%">
+      <p>${product.description}</p>
+      <p>Price: ${product.price}</p>
+      <button onclick="nextStep()">Proceed to Payment</button>
+    `;
   document.querySelector(".step-container").innerHTML = html;
 
   // Popup'ı göster
@@ -173,11 +170,11 @@ function openPaymentDetails() {
 
   // Ödeme detaylarını popup içerisine ekle
   var html = `
-    <h2>Payment Details</h2>
-    <p>Payment details form goes here...</p>
-    <button onclick="previousStep()">Previous</button>
-    <button onclick="nextStep()">Proceed to Payment</button>
-  `;
+      <h2>Payment Details</h2>
+      <p>Payment details form goes here...</p>
+      <button onclick="previousStep()">Previous</button>
+      <button onclick="nextStep()">Proceed to Payment</button>
+    `;
   document.querySelector(".step-container").innerHTML = html;
 }
 
@@ -187,21 +184,29 @@ function completePayment() {
 
   // Ödeme tamamlandı mesajını göster
   var html = `
-    <h2>Payment Completed</h2>
-    <p>Thank you for your purchase!</p>
-    <button onclick="closePopup()">Close</button>
-  `;
+      <h2>Payment Completed</h2>
+      <p>Thank you for your purchase!</p>
+      <button onclick="closePopup()">Close</button>
+    `;
   document.querySelector(".step-container").innerHTML = html;
 }
 
 // Önceki adıma geri dönme fonksiyonu
 function previousStep() {
-  var currentStep = parseInt(document.getElementById("currentStep").value);
-
   currentStep--;
+
   if (currentStep === 1) {
-    openProductDetails(products[0]);
+    // Eğer currentStep 1 ise, mevcut adım 1. adım olduğu için
+    // ilk ürünün detaylarını gösteriyoruz.
+    var index = parseInt(
+      document
+        .querySelector(".product-detail-button")
+        .getAttribute("data-index")
+    );
+    openProductDetails(products[index]);
   } else if (currentStep === 2) {
+    // Eğer currentStep 2 ise, mevcut adım 2. adım olduğu için
+    // ödeme detaylarını gösteriyoruz.
     openPaymentDetails();
   }
 
