@@ -119,7 +119,6 @@ function displayProducts(products) {
             </div>
             <h2 class="title">${product.title}</h2>
             <p class="content">${product.description}</p>
-            <!-- Ürün detayları butonu -->
             <button class="product-detail-button" data-index="${index}">from ${product.price}</button>
           </div>
         </div>
