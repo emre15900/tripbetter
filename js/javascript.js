@@ -395,7 +395,7 @@ function closeModal() {
 
 // Ödeme onayı gösterme fonksiyonu
 function showPaymentConfirmation() {
-  alert("Tebrikler, ödemeniz tamamlandı!");
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
+  Swal.fire("Congratulations!", "Your payment has been completed.", "success");
 }
