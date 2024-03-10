@@ -75,6 +75,27 @@ var products = [
     image:
       "https://tripsbetter.com/pacmoori/2022/03/selous-game-reserve-banner-680x500.jpg",
   },
+  {
+    title: "Honeymoon Serengeti & Seychelles",
+    description: "9 days 8 nights",
+    price: "$10,260",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/Boma-andBeyond-Lake-Manyara-Tree-Lodge-420x380.jpg",
+  },
+  {
+    title: "Tanzania’s Tarangire, Ngorongoro & Serengeti North",
+    description: "7 days 6 nights",
+    price: "$8,115 ",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/Elewana-Arusha-Coffee-Lodge-420x380.jpg",
+  },
+  {
+    title: "Family Botswana's Khwai River & Linyanti Channel",
+    description: "6 days 5 nights",
+    price: "$7,875 ",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/African-Bush-Camps-Khwai-Leadwood-game-drive-420x380.jpg",
+  },
 ];
 
 function filterProducts() {
