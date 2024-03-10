@@ -380,3 +380,15 @@ function closePopup() {
 
 // Ürünleri göster
 displayProducts(products);
+
+// Modalı açma fonksiyonu
+function openModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "block";
+}
+
+// Modalı kapama fonksiyonu
+function closeModal() {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}

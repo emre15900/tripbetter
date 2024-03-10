@@ -225,11 +225,142 @@
                 </div>
               </div>
               <div class="box-wrapper">
-                <a href="./tours.html">
-                  <div class="button-box">
-                    <button>Pay with Credit/Bank card donate now</button>
+                <div class="button-box">
+                  <button onclick="openModal()">
+                    Pay with Credit/Bank card donate now
+                  </button>
+                </div>
+                <div id="myModal" class="modal">
+                  <!-- Modal içeriği -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Payment Details</h2>
+                    <form
+                      action=""
+                      class="popup-form"
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      <div class="form-inputs">
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="First name"
+                            type="text"
+                            required
+                          />
+                        </label>
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Last name"
+                            type="text"
+                            required
+                          />
+                        </label>
+                      </div>
+                      <div class="form-inputs">
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Email"
+                            type="text"
+                            required
+                          />
+                        </label>
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Phone"
+                            type="text"
+                            required
+                          />
+                        </label>
+                      </div>
+                      <div class="form-inputs" >
+                        <select class="form-select" id="country">
+                          <option>Country/region</option>
+                          <option value="1">India</option>
+                          <option value="2">United States</option>
+                          <option value="3">Netherlands</option>
+                          <option value="4">Afghanistan</option>
+                          <option value="5">Islands</option>
+                          <option value="6">Albania</option>
+                          <option value="7">Antigua Barbuda</option>
+                        </select>
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Town/City"
+                            type="text"
+                            required
+                          />
+                        </label>
+                      </div>
+                      <div class="form-inputs">
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Street address"
+                            type="text"
+                            required
+                          />
+                        </label>
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Postcode / ZIP"
+                            type="text"
+                            required
+                          />
+                        </label>
+                      </div>
+                      <div class="form-inputs">
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Card Number"
+                            type="text"
+                            required
+                          />
+                        </label>
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Card Holder"
+                            type="text"
+                            required
+                          />
+                        </label>
+                      </div>
+                      <div class="form-inputs">
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="Expiry Date"
+                            type="text"
+                            required
+                          />
+                        </label>
+                        <label>
+                          <input
+                            class="form-control"
+                            placeholder="CVV"
+                            type="text"
+                            required
+                          />
+                        </label>
+                      </div>
+                    </form>
+                    <div class="payment-button">
+                      <button class="make-payment">Proceed to Payment</button>
+                    </div>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
