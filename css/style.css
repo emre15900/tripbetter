@@ -920,6 +920,7 @@
   gap: 40px;
   justify-content: center;
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 .text-box .country-box .countries .country {
   display: flex;
