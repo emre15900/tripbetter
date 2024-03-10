@@ -908,6 +908,9 @@
     gap: 10px;
     justify-content: center;
     margin-top: 2rem;
+    a {
+      text-decoration: none;
+    }
     .button-box {
       display: flex;
       flex-direction: column;
@@ -968,6 +971,42 @@
             font-weight: 500;
             font-size: 12px;
           }
+        }
+      }
+    }
+  }
+}
+
+.more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .box-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 2rem;
+    a {
+      text-decoration: none;
+    }
+    .button-box {
+      display: flex;
+      flex-direction: column;
+      .button-title {
+        color: #000000;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      button {
+        outline: 0;
+        border: 0;
+        padding: 10px 4rem;
+        background-color: #000000;
+        color: #ffffff;
+        border-radius: 30px;
+        &:hover {
+          background-color: #3d3d3d;
         }
       }
     }
