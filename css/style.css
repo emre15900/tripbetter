@@ -986,4 +986,10 @@
 }
 .more-button .box-wrapper .button-box button:hover {
   background-color: #3d3d3d;
+}
+
+.tv-popular-services .blog-img img {
+  max-height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=style.css.map */

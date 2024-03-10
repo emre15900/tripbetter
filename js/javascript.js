@@ -78,23 +78,65 @@ var products = [
   {
     title: "Honeymoon Serengeti & Seychelles",
     description: "9 days 8 nights",
-    price: "$10,260",
+    price: "$10,260.00",
     image:
       "https://www.go2africa.com/wp-content/uploads/2017/08/Boma-andBeyond-Lake-Manyara-Tree-Lodge-420x380.jpg",
   },
   {
     title: "Tanzania’s Tarangire, Ngorongoro & Serengeti North",
     description: "7 days 6 nights",
-    price: "$8,115 ",
+    price: "$8,115.00",
     image:
       "https://www.go2africa.com/wp-content/uploads/2017/08/Elewana-Arusha-Coffee-Lodge-420x380.jpg",
   },
   {
     title: "Family Botswana's Khwai River & Linyanti Channel",
     description: "6 days 5 nights",
-    price: "$7,875 ",
+    price: "$7,875.00",
     image:
       "https://www.go2africa.com/wp-content/uploads/2017/08/African-Bush-Camps-Khwai-Leadwood-game-drive-420x380.jpg",
+  },
+  {
+    title: "East Africa's Gorillas, Safari & Beach",
+    description: "14 days 13 nights",
+    price: "$16,000.00",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2022/01/Soul-stirring-encounters-with-gorilla-Sabyinyo-Silverback-Lodge-420x380.jpg",
+  },
+  {
+    title: "Luxury Kruger, Livingstone & South Luangwa",
+    description: "12 days 11 nights",
+    price: "$18,550.00",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/ROMANTIC-KRUGER-FALLS-ZAMBEZI-LUANGWA10-420x380.jpg",
+  },
+  {
+    title: "Romantic Pretoria to Vic Falls & Delta",
+    description: "15 days 14 nights",
+    price: "$17,250.00",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/ROMANTIC-PRETORIA-TO-VIC-FALLS-DELTA-420x380.jpg",
+  },
+  {
+    title: "Adventurer Mt Kenya, Samburu & Mara",
+    description: "10 days 9 nights",
+    price: "$15,790.00",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/Giraffe-Manor_Friendly-kisses-420x380.jpg",
+  },
+  {
+    title: "Kenya's Amboseli, Samburu & Mara (Fly-In)",
+    description: "9 days 8 nights",
+    price: "$5,565.00",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/Elewana-Tortilis-Camp-Amboseli-1-420x380.jpg",
+  },
+  {
+    title: "Zimbabwe's Matobos, Hwange, Falls & Kariba",
+    description: "5 days 4 nights",
+    price: "$5,320.00",
+    image:
+      "https://www.go2africa.com/wp-content/uploads/2017/08/Camp-Hwange-game-viewing-420x380.jpg",
   },
 ];
 
