@@ -392,3 +392,10 @@ function closeModal() {
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
 }
+
+// Ödeme onayı gösterme fonksiyonu
+function showPaymentConfirmation() {
+  alert("Tebrikler, ödemeniz tamamlandı!");
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
