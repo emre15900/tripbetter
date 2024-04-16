@@ -287,10 +287,11 @@ function openPaymentDetails() {
   // Ödeme detaylarını popup içerisine ekle
   var html = `
       <h2>Payment Details</h2>
-      <form action="" class="popup-form">
+      <form id="payment-form" class="popup-form">
       <div class="form-inputs">
         <label>
           <input
+            id="first-name"
             class="form-control"
             placeholder="First name"
             type="text"
@@ -299,6 +300,7 @@ function openPaymentDetails() {
         </label>
         <label>
           <input
+            id="last-name"
             class="form-control"
             placeholder="Last name"
             type="text"
@@ -309,24 +311,26 @@ function openPaymentDetails() {
       <div class="form-inputs">
         <label>
           <input
+            id="email"
             class="form-control"
             placeholder="Email"
-            type="text"
+            type="email"
             required
           />
         </label>
         <label>
           <input
+            id="phone"
             class="form-control"
             placeholder="Phone"
-            type="text"
+            type="tel"
             required
           />
         </label>
       </div>
       <div class="form-inputs">
-        <select class="form-select" id="country">
-          <option>Country/region</option>
+        <select id="country" class="form-select" required>
+          <option disabled selected>Country/region</option>
           <option value="1">India</option>
           <option value="2">United States</option>
           <option value="3">Netherlands</option>
@@ -334,9 +338,12 @@ function openPaymentDetails() {
           <option value="5">Islands</option>
           <option value="6">Albania</option>
           <option value="7">Antigua Barbuda</option>
+          <option value="8">Tanzania</option>
+          <option value="9">Uganda</option>
         </select>
         <label>
           <input
+            id="city"
             class="form-control"
             placeholder="Town/City"
             type="text"
@@ -347,6 +354,7 @@ function openPaymentDetails() {
       <div class="form-inputs">
         <label>
           <input
+            id="street-address"
             class="form-control"
             placeholder="Street address"
             type="text"
@@ -355,6 +363,7 @@ function openPaymentDetails() {
         </label>
         <label>
           <input
+            id="postcode"
             class="form-control"
             placeholder="Postcode / ZIP"
             type="text"
@@ -365,6 +374,7 @@ function openPaymentDetails() {
       <div class="form-inputs">
         <label>
           <input
+            id="card-number"
             class="form-control"
             placeholder="Card Number"
             type="text"
@@ -373,6 +383,7 @@ function openPaymentDetails() {
         </label>
         <label>
           <input
+            id="card-holder"
             class="form-control"
             placeholder="Card Holder"
             type="text"
@@ -383,21 +394,55 @@ function openPaymentDetails() {
       <div class="form-inputs">
         <label>
           <input
+            id="expiry-date"
             class="form-control"
-            placeholder="Expiry Date"
+            placeholder="Expiry Date (MM/YY)"
             type="text"
             required
           />
         </label>
         <label>
-          <input class="form-control" placeholder="CVV" type="text" required />
+          <input
+            id="cvv"
+            class="form-control"
+            placeholder="CVV"
+            type="text"
+            required
+          />
         </label>
       </div>
+      <div class="payment-button"><button class="make-payment" onclick="validateForm()">Proceed to Payment</button></div>
     </form>
-      <div class="payment-button"><button class="make-payment"  onclick="nextStep()">Proceed to Payment</button></div>
-    `;
+  `;
   document.querySelector(".step-container").innerHTML = html;
 }
+
+function validateForm() {
+  var firstName = document.getElementById("first-name").value.trim();
+  var lastName = document.getElementById("last-name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var phone = document.getElementById("phone").value.trim();
+  var country = document.getElementById("country").value;
+  var city = document.getElementById("city").value.trim();
+  var streetAddress = document.getElementById("street-address").value.trim();
+  var postcode = document.getElementById("postcode").value.trim();
+  var cardNumber = document.getElementById("card-number").value.trim();
+  var cardHolder = document.getElementById("card-holder").value.trim();
+  var expiryDate = document.getElementById("expiry-date").value.trim();
+  var cvv = document.getElementById("cvv").value.trim();
+
+  // Basic validation
+  if (firstName === "" || lastName === "" || email === "" || phone === "" || country === "" || city === "" || streetAddress === "" || postcode === "" || cardNumber === "" || cardHolder === "" || expiryDate === "" || cvv === "") {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  // Additional validation (e.g., email format, phone number format, etc.) can be added here
+
+  // If all validations pass, you can proceed with the payment
+  nextStep();
+}
+
 
 function completePayment() {
   // İlk önce içeriği temizle
