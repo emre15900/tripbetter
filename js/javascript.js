@@ -14,6 +14,59 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+var apiKey = "c383df5786d4770f4d9ed9d7";
+var url =
+  "https://v6.exchangerate-api.com/v6/c383df5786d4770f4d9ed9d7/latest/USD";
+
+let res;
+let USDtoKES;
+$.ajax({
+  url: url,
+  method: "GET",
+  success: function (data) {
+    res = data;
+  },
+}).done(function () {
+  console.log(res);
+  USDtoKES = res.conversion_rates.KES;
+  console.log(USDtoKES);
+});
+
+function convertUsdToKes(data) {
+  var usdInt = parseFloat(data.replace("$", "").replaceAll(",", ""));
+  var kes = usdInt * USDtoKES;
+  return kes.toLocaleString();
+}
+function convertKesToUsd(data) {
+  var usdInt = parseFloat(data.replace("Ksh ", "").replaceAll(",", ""));
+  var kes = usdInt / USDtoKES;
+  return kes.toLocaleString();
+}
+$("#toKes").click(function () {
+  //var amount = $('.payment-price')
+  console.log(this);
+  //console.log($('.payment-price'));
+  $(".product-price-usd").each(function () {
+    console.log(this);
+    var usd = $(this).html();
+    console.log(usd);
+    $(this).html("Ksh " + convertUsdToKes(usd));
+  });
+  //var toKes = amount * USDtoKES;
+});
+$("#toUsd").click(function () {
+  //var amount = $('.payment-price')
+  console.log(this);
+  //console.log($('.payment-price'));
+  $(".product-price-usd").each(function () {
+    console.log(this);
+    var usd = $(this).html();
+    console.log(usd);
+    $(this).html("$" + convertKesToUsd(usd));
+  });
+  //var toKes = amount * USDtoKES;
+});
+
 var products = [
   {
     title: "7 Nights Zanzibar Queen Hotel",
@@ -182,7 +235,7 @@ function displayProducts(products) {
             </div>
             <h2 class="title">${product.title}</h2>
             <p class="content">${product.description}</p>
-            <button class="product-detail-button" data-index="${index}">from ${product.price}</button>
+            <button class="product-detail-button" data-index="${index}">from <span class="product-price-usd">${product.price}</span></button>
           </div>
         </div>
       `;
