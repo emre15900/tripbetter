@@ -331,6 +331,9 @@ function openPaymentDetails() {
       <div class="form-inputs">
         <select id="country" class="form-select" required>
           <option disabled selected>Country/region</option>
+          <option value="10">Kenya</option>
+          <option value="11">Tanzania</option>
+          <option value="12">Uganda</option>
           <option value="1">India</option>
           <option value="2">United States</option>
           <option value="3">Netherlands</option>
